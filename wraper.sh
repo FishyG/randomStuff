@@ -61,9 +61,16 @@ else
 	if ! command -v lolcat &> /dev/null
 	then
 		echo -e "${RED}You fowgot t-to instaww \"lolcat\" you siwwy *looks at you* goose :3${CLEAR}"
-		sleep 3
+		sleep 2
 		echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you ( ˶ˆ꒳ˆ˵ )${CLEAR}"
 		sudo apt install -y lolcat
+	fi
+ 	if ! command -v toilet &> /dev/null
+	then
+		echo -e "${RED}You fowgot t-to instaww \"toilet\" you siwwy *looks at you* goose :3${CLEAR}"
+		sleep 1
+		echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you ( ˶ˆ꒳ˆ˵ )${CLEAR}"
+		sudo apt install -y toilet
 	fi
 	cat ~/.ducky/duck.ascii | ~/.ducky/renderer.sh $HOSTNAME > $DUCK_RENDER
 fi
