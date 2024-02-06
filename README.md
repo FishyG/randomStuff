@@ -7,3 +7,8 @@ Run this for a cool duck
 ```bash
 curl -s https://raw.githubusercontent.com/FishyG/randomStuff/main/wraper.sh | bash
 ```
+### ZshAutoConfig
+Automatically configure zsh
+```bash
+curl -s https://raw.githubusercontent.com/FishyG/randomStuff/main/zshAutoConfig.sh | bash
+```
