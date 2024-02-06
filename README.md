@@ -10,5 +10,5 @@ curl -s https://raw.githubusercontent.com/FishyG/randomStuff/main/wraper.sh | ba
 ### ZshAutoConfig
 Automatically configure zsh
 ```bash
-curl -s https://raw.githubusercontent.com/FishyG/randomStuff/main/zsh_auto_config.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/FishyG/randomStuff/main/zsh_auto_config.sh)"
 ```
