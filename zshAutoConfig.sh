@@ -47,7 +47,7 @@ read -r -p "Install oh-my-zsh ? [y/N] " response
 echo -e "${CLEAR}"
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
-	sudo apt-get install -y curl
+	sudo apt-get install -y curl git
 	export RUNZSH=no	# We do not want zsh to run after the install
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	
