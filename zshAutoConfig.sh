@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 #Colors (use ${COLOR})
 CLEAR='\033[0m'
