@@ -5,7 +5,7 @@ Repo for whatever scripts/programs I make
 ### Ducky
 Run this for a cool duck
 ```bash
-curl -s https://raw.githubusercontent.com/FishyG/randomStuff/main/wraper.sh | bash
+bash -c "$curl -fsSL https://raw.githubusercontent.com/FishyG/randomStuff/main/wraper.sh)"
 ```
 ### ZshAutoConfig
 Automatically configure zsh
