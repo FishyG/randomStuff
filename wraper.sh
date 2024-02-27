@@ -11,31 +11,31 @@ then
 	echo "$DUCK_RENDER exists."
 else
 	echo -e "${PURPLE}Cweating \"~/.ducky\" diwectowy >.< ...${CLEAR}"
-	sleep 3
+	sleep 1
 	mkdir -p ~/.ducky
 
 	# Getting the ascii art from github
 	echo -e "${PURPLE}Getting the x3 ascii awt OwO...${CLEAR}"
-	sleep 3
+	sleep 2
 	if command -v wget &> /dev/null
 	then
 		wget -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/duck.ascii	
 	else
 
 		echo -e "${RED}Oh nyo, w-w-wget (・\`ω´・) nyot found *confusion*${CLEAR}"
-		sleep 3
+		sleep 1
 		echo -e "${PURPLE}Imma twy with curl ^w^...${CLEAR}"
-		sleep 3
+		sleep 2
 		if command -v curl &> /dev/null
 		then
 			curl -so ~/.ducky/duck.ascii https://raw.githubusercontent.com/FishyG/randomStuff/main/duck.ascii
 		else
 			echo -e "${RED}Nyot even OwO curl ?!! ${CLEAR}"
-			sleep 3
+			sleep 2
 
 			# Install wget if not present
 			echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you >w<${CLEAR}"
-			sleep 3
+			sleep 1
 			sudo apt-get install -y curl
 			curl -so ~/.ducky/duck.ascii https://raw.githubusercontent.com/FishyG/randomStuff/main/duck.ascii
 		fi
@@ -43,27 +43,34 @@ else
 
 	# Getting the rendering script from github 
 	echo -e "${PURPLE}Getting the x3 wendewing scwipt...${CLEAR}"
-	sleep 3
+	sleep 2
 	if command -v wget &> /dev/null
 	then
 		wget -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/renderer.sh
 	else
-		echo -e "${RED}Oh nyo, w-w-wget (・\`ω´・) nyot found *confusion*${CLEAR}"
-		sleep 3
+		echo -e "${RED}Oh nyo, w-w-wget (・\`ω´・) nyot found *visible confusion*${CLEAR}"
+		sleep 1
 		echo -e "${PURPLE}Imma twy with curl ^w^...${CLEAR}"
-		sleep 3
+		sleep 2
 		curl -so ~/.ducky/renderer.sh https://raw.githubusercontent.com/FishyG/randomStuff/main/renderer.sh
 	fi
 	chmod +x ~/.ducky/renderer.sh
 
 	echo -e "${PURPLE}Stawting ( ੭•͈ω•͈)੭ the x3 wendewing of the ducky...${CLEAR}"
-	sleep 3
+	sleep 2
 	if ! command -v lolcat &> /dev/null
 	then
 		echo -e "${RED}You fowgot t-to instaww \"lolcat\" you siwwy *looks at you* goose :3${CLEAR}"
-		sleep 3
+		sleep 2
 		echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you ( ˶ˆ꒳ˆ˵ )${CLEAR}"
 		sudo apt install -y lolcat
+	fi
+ 	if ! command -v toilet &> /dev/null
+	then
+		echo -e "${RED}You fowgot t-to instaww \"toilet\" you siwwy *looks at you* goose :3${CLEAR}"
+		sleep 1
+		echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you ( ˶ˆ꒳ˆ˵ )${CLEAR}"
+		sudo apt install -y toilet
 	fi
 	cat ~/.ducky/duck.ascii | ~/.ducky/renderer.sh $HOSTNAME > $DUCK_RENDER
 fi
