@@ -13,8 +13,14 @@
 #include <string.h>
 #include <unistd.h>
 
+/* ANSI Escape Sequences */
+#define ESC  "\x1B"
+#define CLS  ESC"[2J"
+#define HOME  ESC"[H"
+
 void screen_refresh(char* screen, int size_x, int size_y) {
-	system("clear");
+	// system("clear"); // Bruh, I actually don't need it if I redraw the whole 
+	printf(HOME);
 	//printf("X: %d\n", size_x);	
 	//printf("Y: %d\n", size_y);	
 	
@@ -46,6 +52,7 @@ int main() {
 
 	char *screenarr = malloc((sizeof *screenarr) * w.ws_col * w.ws_row);
 	memset(screenarr, 0, (sizeof *screenarr) * w.ws_col * w.ws_row);	// Set the screen to all black	
+    // \x1b[?1049h
 	
 	int radius = w.ws_row / 2;
 	if(w.ws_row > w.ws_col)
