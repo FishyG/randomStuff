@@ -14,22 +14,25 @@
 #include <unistd.h>
 
 /* ANSI Escape Sequences */
-#define ESC  "\x1B"
-#define CLS  ESC"[2J"
-#define HOME  ESC"[H"
+#define ESC     "\x1B"
+#define CLS     ESC"[2J"
+#define HOME    ESC"[H"
 
 void screen_refresh(char* screen, int size_x, int size_y) {
 	// system("clear"); // Bruh, I actually don't need it if I redraw the whole 
 	printf(HOME);
 	//printf("X: %d\n", size_x);	
 	//printf("Y: %d\n", size_y);	
-	
+    char line[size_x + 1];
+
 	for(int y = 0; y < size_y; y++) {
 		for(int x = 0; x < size_x; x++) {
-			printf("%s", *(screen + (x + y * size_x)) ? "#" : " " );	// So far this only does black and white
+			//printf("%s", *(screen + (x + y * size_x)) ? "#" : " " );	// So far this only does black and white
+            line[x] = *(screen + (x + y * size_x)) ? '#' : ' ';
 			//printf("%d", *(screen + (x + y * size_x)));	// So far this only does black and white
 		}
-		printf("\n");
+        line[size_x] = 0;
+		printf("%s\n",line);
 	}
 }
 
@@ -57,13 +60,13 @@ int main() {
 	int radius = w.ws_row / 2;
 	if(w.ws_row > w.ws_col)
 		radius = w.ws_col / 2;
-	while(1) {	
+	for(int balls = 0; balls < 1000; balls++) {	
 		// Move the circle to the left
 		for(int shift = -(w.ws_col/ 2) + radius; shift < w.ws_col / 2 - radius; shift++) {
 			draw_circle(screenarr, w.ws_col, w.ws_row, radius, w.ws_col / 2 + shift, w.ws_row / 2, 1);
 			screen_refresh(screenarr, w.ws_col, w.ws_row); // This is kinda of a dumb way to do it
 			draw_circle(screenarr, w.ws_col, w.ws_row, radius, w.ws_col / 2 + shift, w.ws_row / 2, 0);
-			usleep(5000);
+			//usleep(5000);
 		}
 		
 		// Move the circle to the middle
@@ -71,7 +74,7 @@ int main() {
 			draw_circle(screenarr, w.ws_col, w.ws_row, radius, w.ws_col / 2 + shift, w.ws_row / 2, 1);
 			screen_refresh(screenarr, w.ws_col, w.ws_row); // This is kinda of a dumb way to do it
 			draw_circle(screenarr, w.ws_col, w.ws_row, radius, w.ws_col / 2 + shift, w.ws_row / 2, 0);
-			usleep(5000);
+			//usleep(5000);
 		}
 	
 		// Zoom in and out with the circle
@@ -90,7 +93,7 @@ int main() {
 			test += direction;
 			//printf("Direction: %d\n", direction);
 			//printf("Test: %d\n", test);
-			usleep(10000);
+			//usleep(10000);
 		}
 		
 		// Move the circle back to the start
@@ -98,7 +101,7 @@ int main() {
 			draw_circle(screenarr, w.ws_col, w.ws_row, radius, w.ws_col / 2 + shift, w.ws_row / 2, 1);
 			screen_refresh(screenarr, w.ws_col, w.ws_row); // This is kinda of a dumb way to do it
 			draw_circle(screenarr, w.ws_col, w.ws_row, radius, w.ws_col / 2 + shift, w.ws_row / 2, 0);
-			usleep(5000);
+		//	usleep(5000);
 		}
 	}
 	system("clear");
