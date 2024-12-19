@@ -5,7 +5,10 @@ off=$(cat "$f" |wc -l)
 echo  -e '\e[?25l'
 for i in `seq 1 5 61` ;do
 # seq arguments control framerate and length
-    cat "$f"|lolcat --force -S $i
+    if ! cat "$f" | lolcat --force -S $i 2>/dev/null ; then
+        # if lolcat not present go directly to /usr/games
+        cat "$f" | /usr/games/lolcat --force -S $i
+    fi
     if [ ! $a ] && [ -n "$1" ];then
         echo "$1"|toilet -f future --metal
         # after first frame print static message
