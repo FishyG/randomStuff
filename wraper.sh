@@ -19,7 +19,7 @@ else
 	sleep 2
 	if command -v wget &> /dev/null
 	then
-		wget -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/duck.ascii	
+		wget --quiet -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/duck.ascii	
 	else
 
 		echo -e "${RED}Oh nyo, w-w-wget (・\`ω´・) nyot found *confusion*${CLEAR}"
@@ -46,7 +46,7 @@ else
 	sleep 2
 	if command -v wget &> /dev/null
 	then
-		wget -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/renderer.sh
+		wget --quiet -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/renderer.sh
 	else
 		echo -e "${RED}Oh nyo, w-w-wget (・\`ω´・) nyot found *visible confusion*${CLEAR}"
 		sleep 1
