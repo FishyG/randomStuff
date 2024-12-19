@@ -33,9 +33,9 @@ else
 			echo -e "${RED}Nyot even OwO curl ?!! ${CLEAR}"
 			sleep 2
 
-			# Install wget if not present
+			# Install curl if not present
 			echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you >w<${CLEAR}"
-			sleep 1
+			sleep 2
 			sudo apt-get install -y curl
 			curl -so ~/.ducky/duck.ascii https://raw.githubusercontent.com/FishyG/randomStuff/main/duck.ascii
 		fi
@@ -49,7 +49,7 @@ else
 		wget --quiet -P ~/.ducky/ https://raw.githubusercontent.com/FishyG/randomStuff/main/renderer.sh
 	else
 		echo -e "${RED}Oh nyo, w-w-wget (・\`ω´・) nyot found *visible confusion*${CLEAR}"
-		sleep 1
+		sleep 2
 		echo -e "${PURPLE}Imma twy with curl ^w^...${CLEAR}"
 		sleep 2
 		curl -so ~/.ducky/renderer.sh https://raw.githubusercontent.com/FishyG/randomStuff/main/renderer.sh
@@ -63,24 +63,23 @@ else
 		echo -e "${RED}You fowgot t-to instaww \"lolcat\" you siwwy *looks at you* goose :3${CLEAR}"
 		sleep 2
 		echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you ( ˶ˆ꒳ˆ˵ )${CLEAR}"
-  		sleep 1
+  		sleep 2
 		sudo apt install -y lolcat
 	fi
  	if ! command -v toilet &> /dev/null
 	then
 		echo -e "${RED}You fowgot t-to instaww \"toilet\" you siwwy *looks at you* goose :3${CLEAR}"
-		sleep 1
+		sleep 2
 		echo -e "${PURPLE}Don't wowwy, imma instawl i-it fow you ( ˶ˆ꒳ˆ˵ )${CLEAR}"
-  		sleep 1
+  		sleep 2
 		sudo apt install -y toilet
 	fi
 	cat ~/.ducky/duck.ascii | ~/.ducky/renderer.sh $HOSTNAME > $DUCK_RENDER
 fi
 
 clear
-echo -e "${PURPLE}DUCK MAN YAAAAAAAAAAAAAAAAAAAAOOOOOHHHHH${CLEAR}"
+echo -e "${PURPLE}DUCK MAN YIPPEEEEEEEEEEEEEEEEEEEEEEE${CLEAR}\n"
 sleep 1
-echo ""
 echo "press Q to exit :3"
 sleep 2
 clear
